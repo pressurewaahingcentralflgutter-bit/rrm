@@ -1,0 +1,11 @@
+name = "rrm"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = ".open-next/assets"
+
+[vars]
+# Set these in Cloudflare dashboard → Pages → Settings → Environment Variables:
+# UPSTASH_REDIS_REST_URL  = your upstash URL
+# UPSTASH_REDIS_REST_TOKEN = your upstash token
+# ADMIN_PASSWORD           = your admin password
+# SESSION_SECRET           = a long random secret string
