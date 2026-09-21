@@ -13,6 +13,8 @@ import {
 } from 'lucide-react';
 import { serviceSchema, faqSchema, breadcrumbSchema } from '@/lib/schema';
 import { locations } from '@/data/locations';
+import { services as allServicesData } from '@/data/services';
+import type { Service } from '@/types';
 
 const locationsMap = Object.fromEntries(locations.map((l) => [l.slug, l]));
 
@@ -187,6 +189,51 @@ const servicesData: Record<string, {
   },
 };
 
+// Auto-generate rich page content from services.ts for any service not in servicesData above
+function buildFallbackService(svc: Service) {
+  const methodLabel: Record<Service['method'], string> = {
+    'pressure':  'high-pressure washing',
+    'soft-wash': 'low-pressure soft washing with biocide treatment',
+    'vacuum':    'professional vacuum extraction',
+    'combined':  'combined pressure washing and chemical treatment',
+    'manual':    'specialist manual scrubbing and treatment',
+    'chemical':  'specialist chemical application',
+  };
+  const method = methodLabel[svc.method] || 'professional cleaning';
+  const surfaceList = svc.surfaces.slice(0, 4).join(', ');
+
+  return {
+    title: svc.name,
+    icon: Droplets,
+    description: svc.description,
+    longDescription: `${svc.name} is a professional exterior cleaning service delivered by R.R.M External Cleaning Specialist across North West England. ${svc.description} We use ${svc.equipment} to achieve outstanding results on ${surfaceList} and more — fully insured, no subcontractors, free quote.`,
+    whatIs: `${svc.name} uses ${method} to clean, restore, and protect exterior surfaces. ${svc.residentialFocus}. Our approach is calibrated per surface type so nothing gets damaged in the process.`,
+    whyNeeded: `For homeowners: ${svc.residentialFocus}. For commercial properties: ${svc.commercialFocus}. Left untreated, contamination builds up year-on-year — professional cleaning stops the cycle and protects the surface long-term.`,
+    howDone: `Roberto and the R.R.M team start with a surface assessment before any equipment is used. We then deploy ${svc.equipment} — the right tool for your specific surface — using ${method}. Every job is completed to the same standard regardless of size.`,
+    whenNeeded: svc.seasonalNote,
+    surfaces: svc.surfaces,
+    faqs: [
+      {
+        q: `How long does ${svc.name.toLowerCase()} take?`,
+        a: `${svc.avgJobDuration}. We'll give you a precise time estimate during your free no-obligation quote — call 07845 463877 or email rrmexternalcleaning@gmail.com.`,
+      },
+      {
+        q: `What surfaces do you clean with ${svc.name.toLowerCase()}?`,
+        a: `We work on ${svc.surfaces.join(', ')}. We assess every surface before starting to choose the right pressure and chemical — nothing is ever treated with a one-size-fits-all approach.`,
+      },
+      {
+        q: `Is ${svc.name.toLowerCase()} safe for my property?`,
+        a: `Yes. We use ${method}, which is specifically chosen to be effective without causing damage. R.R.M is fully insured with public liability cover on every job, and Roberto personally oversees the work — no subcontractors.`,
+      },
+      {
+        q: `Do you cover my area for ${svc.name.toLowerCase()}?`,
+        a: `We cover all of Merseyside, Greater Manchester, Cheshire, and West Lancashire including Warrington, St Helens, Newton-le-Willows, Widnes, Leigh, Golborne, Manchester, Lymm, Haydock, and 15+ more locations. Same-week availability in most areas.`,
+      },
+    ],
+    relatedServices: svc.relatedServices,
+  };
+}
+
 export default function ServicePage(props?: { params?: { serviceSlug: string; locationSlug?: string } }) {
   const routerParams = useParams<{ serviceSlug: string }>();
   const propsParams = props?.params;
@@ -195,7 +242,12 @@ export default function ServicePage(props?: { params?: { serviceSlug: string; lo
   const locationSlug = propsParams?.locationSlug ?? undefined;
   const location = locationSlug ? locationsMap[locationSlug] : null;
 
-  const service = serviceSlug ? servicesData[serviceSlug as string] : null;
+  const service = serviceSlug
+    ? (servicesData[serviceSlug as string] ?? (() => {
+        const raw = allServicesData.find(s => s.slug === serviceSlug);
+        return raw ? buildFallbackService(raw) : null;
+      })())
+    : null;
 
   useEffect(() => {
     // Handle schema injections for Next.js (client-side)
