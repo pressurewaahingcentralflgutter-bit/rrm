@@ -686,6 +686,10 @@ export default function RootLayout({
           fetchpriority="high"
         />
 
+        {/* ── Google Search Console verification (owner-supplied, 2026-10-14) ──
+            Kept alongside the existing verification in metadata `other`. */}
+        <meta name="google-site-verification" content="wO9nFjpNuEfZO_e2s0_iWmeNbeZQ2_cpgc3mNFfApiM" />
+
         {/* ── Google Analytics 4 ───────────────────────────────────────────
             async prevents render-blocking. Placed after preconnects so
             the GTM connection is warm before the script fires.
