@@ -1,8 +1,19 @@
+import type { Metadata } from 'next'
 import { isAdminAuthenticated } from '@/lib/adminAuth'
 import { getAllBookings } from '@/lib/bookingStore'
 import { AdminSidebar } from '@/components/admin/AdminSidebar'
 
 export const dynamic = 'force-dynamic'
+
+// Admin screens must never appear in search results — the login page is
+// otherwise a public 200 with no noindex signal.
+export const metadata: Metadata = {
+  robots: {
+    index: false,
+    follow: false,
+    googleBot: { index: false, follow: false },
+  },
+}
 
 export default async function AdminLayout({
   children,

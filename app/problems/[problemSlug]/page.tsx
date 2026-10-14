@@ -20,10 +20,12 @@ export async function generateMetadata({
 
   const canonical = `${BASE_URL}/problems/${problemSlug}`;
 
-  // LLM-optimised title: keyword-first, ≤60 chars
-  const title = problem.metaTitle.length <= 60
-    ? problem.metaTitle
-    : `${problem.displayName} — Professional Treatment | R.R.M`;
+  // LLM-optimised title: keyword-first, hard-capped at 60 chars so the
+  // brand suffix is never truncated mid-word in SERPs.
+  const fallbackTitle = `${problem.displayName} — Professional Treatment | R.R.M`;
+  const rawTitle = problem.metaTitle.length <= 60 ? problem.metaTitle : fallbackTitle;
+  const title =
+    rawTitle.length <= 60 ? rawTitle : rawTitle.slice(0, 57).replace(/\s+\S*$/, '') + '...';
 
   // Enhanced description with local intent and near-me signal
   const description =

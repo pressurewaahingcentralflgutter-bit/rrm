@@ -308,7 +308,7 @@ export function ExteriorCleaningSection() {
         {/* ── CTA ───────────────────────────────────────────────────────── */}
         <div className="text-center">
           <Link
-            href="/contact/"
+            href="/contact"
             aria-label="Get a free exterior cleaning and pressure washing quote from R.R.M External Cleaning Specialist"
             className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2"
           >

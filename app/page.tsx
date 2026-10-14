@@ -795,14 +795,14 @@ export default function Home() {
 
           <div className="flex flex-col sm:flex-row gap-4">
             <Link
-              href="/contact/"
+              href="/contact"
               aria-label="Get a free exterior cleaning quote from RRM External Cleaning Specialist"
               className="bg-amber-500 hover:bg-amber-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
             >
               Get a Free Quote
             </Link>
             <Link
-              href="/services/"
+              href="/services"
               aria-label="Browse all 40 exterior cleaning and treatment services by RRM Specialist"
               className="border-2 border-white text-white hover:bg-white hover:text-slate-900 font-semibold px-6 py-3 rounded-lg transition-colors text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
             >
@@ -870,7 +870,7 @@ export default function Home() {
 
           <div className="mt-10 text-center">
             <Link
-              href="/services/"
+              href="/services"
               aria-label="Browse the full list of 40 exterior cleaning and treatment services"
               className="inline-flex items-center gap-2 text-amber-600 font-semibold hover:text-amber-700 hover:underline underline-offset-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded"
             >
@@ -917,21 +917,21 @@ export default function Home() {
             <p className="font-body text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
               From{' '}
               <Link
-                href="/services/driveway-cleaning/warrington/"
+                href="/services/driveway-cleaning/warrington"
                 className="text-amber-600 hover:text-amber-700 underline-offset-2 hover:underline transition-colors"
               >
                 driveway cleaning in Warrington
               </Link>{' '}
               and{' '}
               <Link
-                href="/services/jet-washing/warrington/"
+                href="/services/jet-washing/warrington"
                 className="text-amber-600 hover:text-amber-700 underline-offset-2 hover:underline transition-colors"
               >
                 jet washing across the North West
               </Link>{' '}
               to{' '}
               <Link
-                href="/services/roof-cleaning/st-helens/"
+                href="/services/roof-cleaning/st-helens"
                 className="text-amber-600 hover:text-amber-700 underline-offset-2 hover:underline transition-colors"
               >
                 roof cleaning in St Helens
@@ -1114,7 +1114,7 @@ export default function Home() {
 
           <div className="mt-10 text-center">
             <Link
-              href="/problems/"
+              href="/problems"
               aria-label="View all exterior surface problems and the right cleaning treatments"
               className="inline-flex items-center gap-2 text-amber-600 font-semibold hover:text-amber-700 hover:underline underline-offset-2 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 rounded"
             >
@@ -1209,7 +1209,7 @@ export default function Home() {
             right equipment, and tells you the truth about what your surface actually needs.
             That&apos;s what R.R.M has delivered since <time dateTime="2016">2016</time>. Based in{' '}
             <Link
-              href="/locations/newton-le-willows/"
+              href="/locations/newton-le-willows"
               title="Exterior cleaning services in Newton-le-Willows, WA12 — RRM Specialist"
               className="text-amber-600 hover:text-amber-700 underline-offset-2 hover:underline transition-colors"
             >
@@ -1217,7 +1217,7 @@ export default function Home() {
             </Link>
             , our team regularly works throughout{' '}
             <Link
-              href="/locations/warrington/"
+              href="/locations/warrington"
               title="Exterior cleaning services in Warrington, Cheshire — RRM Specialist"
               className="text-amber-600 hover:text-amber-700 underline-offset-2 hover:underline transition-colors"
             >
@@ -1225,7 +1225,7 @@ export default function Home() {
             </Link>{' '}
             and across to{' '}
             <Link
-              href="/locations/manchester/"
+              href="/locations/manchester"
               title="Exterior cleaning services in Manchester, Greater Manchester — RRM Specialist"
               className="text-amber-600 hover:text-amber-700 underline-offset-2 hover:underline transition-colors"
             >
@@ -1233,7 +1233,7 @@ export default function Home() {
             </Link>{' '}
             — covering everything from routine{' '}
             <Link
-              href="/services/gutter-cleaning/"
+              href="/services/gutter-cleaning"
               title="Gutter cleaning service in North West England — RRM External Cleaning"
               className="text-amber-600 hover:text-amber-700 underline-offset-2 hover:underline transition-colors"
             >
@@ -1255,7 +1255,7 @@ export default function Home() {
           <p className="font-body text-base text-slate-600 leading-relaxed mb-5 max-w-4xl">
             We invest in specialist equipment and treatments — from{' '}
             <Link
-              href="/services/bio-wash-treatment/"
+              href="/services/bio-wash-treatment"
               title="Bio wash treatment — soft wash biocide cleaning for K-Rend and monocouche render"
               className="text-amber-600 hover:text-amber-700 underline-offset-2 hover:underline transition-colors"
             >
@@ -1264,7 +1264,7 @@ export default function Home() {
             for delicate surfaces like K-Rend and monocouche render, through to high-pressure
             cleaning for heavily contaminated hard standing. Our{' '}
             <Link
-              href="/services/render-cleaning/"
+              href="/services/render-cleaning"
               title="Render cleaning — K-Rend and monocouche render treatment across Merseyside"
               className="text-amber-600 hover:text-amber-700 underline-offset-2 hover:underline transition-colors"
             >
@@ -1273,14 +1273,14 @@ export default function Home() {
             process is calibrated for your specific coating — we never use a pressure that could
             damage your render or tiles. Not sure what&apos;s affecting your property? Browse{' '}
             <Link
-              href="/problems/"
+              href="/problems"
               className="text-amber-600 hover:text-amber-700 underline-offset-2 hover:underline transition-colors"
             >
               our common problems guide
             </Link>{' '}
             for practical advice, or{' '}
             <Link
-              href="/contact/"
+              href="/contact"
               className="text-amber-600 hover:text-amber-700 underline-offset-2 hover:underline transition-colors"
             >
               get in touch for a free quote
@@ -1292,7 +1292,7 @@ export default function Home() {
           <p className="font-body text-base text-slate-600 leading-relaxed mb-10 max-w-4xl">
             Whether you need{' '}
             <Link
-              href="/services/patio-sealing/widnes/"
+              href="/services/patio-sealing/widnes"
               title="Patio sealing in Widnes — post-clean sealant application by RRM Specialist"
               className="text-amber-600 hover:text-amber-700 underline-offset-2 hover:underline transition-colors"
             >
@@ -1300,7 +1300,7 @@ export default function Home() {
             </Link>{' '}
             to protect against winter frost,{' '}
             <Link
-              href="/services/moss-removal/skelmersdale/"
+              href="/services/moss-removal/skelmersdale"
               title="Moss removal in Skelmersdale, West Lancashire — biocide treatment by RRM"
               className="text-amber-600 hover:text-amber-700 underline-offset-2 hover:underline transition-colors"
             >
@@ -1308,7 +1308,7 @@ export default function Home() {
             </Link>
             , or{' '}
             <Link
-              href="/services/window-cleaning/st-helens/"
+              href="/services/window-cleaning/st-helens"
               title="Window cleaning in St Helens, Merseyside — RRM External Cleaning Specialist"
               className="text-amber-600 hover:text-amber-700 underline-offset-2 hover:underline transition-colors"
             >
@@ -1317,7 +1317,7 @@ export default function Home() {
             , our flexible scheduling means we can typically be with you within the week. We are
             equally experienced with commercial contracts — from{' '}
             <Link
-              href="/services/car-park-cleaning/"
+              href="/services/car-park-cleaning"
               title="Car park cleaning — commercial pressure washing for retail parks and industrial sites"
               className="text-amber-600 hover:text-amber-700 underline-offset-2 hover:underline transition-colors"
             >
@@ -1325,7 +1325,7 @@ export default function Home() {
             </Link>{' '}
             for retail parks to{' '}
             <Link
-              href="/services/high-rise-cleaning/"
+              href="/services/high-rise-cleaning"
               title="High-rise exterior cleaning — commercial pressure washing contractors North West"
               className="text-amber-600 hover:text-amber-700 underline-offset-2 hover:underline transition-colors"
             >
@@ -1422,7 +1422,7 @@ export default function Home() {
 
           <div className="mt-8 text-center">
             <Link
-              href="/faq/"
+              href="/faq"
               aria-label="Read all frequently asked questions about our exterior cleaning services"
               className="text-amber-600 font-semibold hover:text-amber-700 underline-offset-2 hover:underline transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 rounded"
             >
@@ -1457,7 +1457,7 @@ export default function Home() {
               <p className="font-body text-base text-slate-600 leading-relaxed mb-6">
                 Our team operates from Newton-le-Willows, WA12, placing us within easy reach of{' '}
                 <Link
-                  href="/locations/warrington/"
+                  href="/locations/warrington"
                   title="Exterior cleaning in Warrington, Cheshire — RRM Specialist"
                   className="text-amber-600 hover:text-amber-700 underline-offset-2 hover:underline transition-colors"
                 >
@@ -1465,7 +1465,7 @@ export default function Home() {
                 </Link>
                 ,{' '}
                 <Link
-                  href="/locations/st-helens/"
+                  href="/locations/st-helens"
                   title="Exterior cleaning in St Helens, Merseyside — RRM Specialist"
                   className="text-amber-600 hover:text-amber-700 underline-offset-2 hover:underline transition-colors"
                 >
@@ -1473,7 +1473,7 @@ export default function Home() {
                 </Link>
                 ,{' '}
                 <Link
-                  href="/locations/leigh/"
+                  href="/locations/leigh"
                   title="Exterior cleaning in Leigh, Greater Manchester — RRM Specialist"
                   className="text-amber-600 hover:text-amber-700 underline-offset-2 hover:underline transition-colors"
                 >
@@ -1481,7 +1481,7 @@ export default function Home() {
                 </Link>
                 ,{' '}
                 <Link
-                  href="/locations/widnes/"
+                  href="/locations/widnes"
                   title="Exterior cleaning in Widnes, Cheshire — RRM Specialist"
                   className="text-amber-600 hover:text-amber-700 underline-offset-2 hover:underline transition-colors"
                 >
@@ -1489,7 +1489,7 @@ export default function Home() {
                 </Link>
                 , and{' '}
                 <Link
-                  href="/locations/manchester/"
+                  href="/locations/manchester"
                   title="Exterior cleaning in Manchester, Greater Manchester — RRM Specialist"
                   className="text-amber-600 hover:text-amber-700 underline-offset-2 hover:underline transition-colors"
                 >
@@ -1527,7 +1527,7 @@ export default function Home() {
 
               <div className="flex flex-col sm:flex-row gap-3">
                 <Link
-                  href="/contact/"
+                  href="/contact"
                   aria-label="Book a free exterior cleaning survey with RRM External Cleaning Specialist"
                   className="inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-600 text-white font-semibold px-5 py-3 rounded-lg transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2"
                 >
@@ -1592,7 +1592,7 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row gap-4 shrink-0">
               <Link
-                href="/contact/"
+                href="/contact"
                 aria-label="Get a free exterior cleaning quote — contact RRM External Cleaning Specialist"
                 className="bg-white text-amber-600 hover:bg-amber-50 font-semibold px-6 py-3 rounded-lg transition-colors text-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-amber-500"
               >

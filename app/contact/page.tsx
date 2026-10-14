@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     absolute: 'Contact R.R.M External Cleaning | Free Quote North West',
   },
   description:
-    'Get a free no-obligation quote for exterior cleaning near you. Call 07845 463877 or email us. R.R.M External Cleaning — serving Warrington, Newton-le-Willows, St Helens & North West. Available 24/7.',
+    'Free no-obligation exterior cleaning quotes. Call 07845 463877 — R.R.M serves Warrington, Newton-le-Willows, St Helens & the North West. Available 24/7.',
   keywords: [
     'contact exterior cleaning North West',
     'free quote exterior cleaning near me',

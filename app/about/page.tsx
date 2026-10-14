@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     absolute: 'About R.R.M External Cleaning | Est. 2016, North West',
   },
   description:
-    'R.R.M External Cleaning Specialist — founded 2016, Newton-le-Willows. Fully insured, no subcontracting, 5-star rated. Professional exterior cleaning across Merseyside, Greater Manchester & Cheshire.',
+    'R.R.M External Cleaning Specialist — founded 2016, Newton-le-Willows. Fully insured, no subcontracting, 5-star rated. Cleaning across the North West.',
   keywords: [
     'about RRM External Cleaning Specialist',
     'exterior cleaning specialist North West',

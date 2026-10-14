@@ -148,7 +148,7 @@ function buildRelatedServices(
       const related = serviceMap.get(slug)!;
       return {
         name: related.name,
-        href: `/services/${slug}/${location.slug}/`,
+        href: `/services/${slug}/${location.slug}`,
         blurb: blurbs[slug] ?? `Professional ${related.name.toLowerCase()} service in ${location.name}.`,
       };
     });
@@ -180,7 +180,7 @@ Our equipment represents a significant investment in professional-grade capabili
 
     3: `R.R.M External Cleaning Specialist serves ${location.name} from our Newton-le-Willows base — just a short distance away — with the same professional standards we apply across all 21 locations in our service area.
 
-Fully insured, established since 2016, and available 24/7, we offer free no-obligation quotations for all ${service.shortName.toLowerCase()} enquiries in ${location.name}. We never subcontract — the team you meet at quotation is the team that cleans your property. For more information about our coverage across ${location.county}, visit our <a href="/areas/${location.nearbyHubs[0] ?? 'newton-le-willows'}/" class="underline">${location.nearbyHubs[0] ? location.nearbyHubs[0].split('-').map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join('-') : 'Newton-le-Willows'} service area page</a>.`,
+Fully insured, established since 2016, and available 24/7, we offer free no-obligation quotations for all ${service.shortName.toLowerCase()} enquiries in ${location.name}. We never subcontract — the team you meet at quotation is the team that cleans your property. For more information about our coverage across ${location.county}, visit our <a href="/locations/${location.nearbyHubs[0] ?? 'newton-le-willows'}" class="underline">${location.nearbyHubs[0] ? location.nearbyHubs[0].split('-').map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join('-') : 'Newton-le-Willows'} service area page</a>.`,
   };
 
   return tierVariants[location.tier] ?? tierVariants[3];
@@ -292,7 +292,7 @@ function buildNearbyAreas(
           label = `${service.shortName.toLowerCase()} in ${loc.name}`;
           break;
       }
-      return { label, href: `/services/${service.slug}/${slug}/` };
+      return { label, href: `/services/${service.slug}/${slug}` };
     });
 
   return {

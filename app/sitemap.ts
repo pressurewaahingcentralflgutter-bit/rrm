@@ -1,4 +1,6 @@
 import type { MetadataRoute } from 'next';
+import { statSync } from 'node:fs';
+import { join } from 'node:path';
 import { services } from '@/data/services';
 import { locations } from '@/data/locations';
 import { problems } from '@/data/problems';
@@ -6,8 +8,29 @@ import { surfaces } from '@/data/surfaces';
 
 const BASE_URL = 'https://rrmexternalcleaningspecialist.co.uk';
 
+/**
+ * Stable lastModified: the newest mtime of the content data files.
+ * Using `new Date()` here stamped every URL with the build time on every
+ * deploy, training crawlers to ignore our lastmod signal entirely.
+ * A date that only moves when content actually changes is trustworthy.
+ */
+function contentLastModified(): Date {
+  const dataDir = join(process.cwd(), 'src', 'data');
+  const files = ['services.ts', 'locations.ts', 'problems.ts', 'surfaces.ts'];
+  let latest = 0;
+  for (const f of files) {
+    try {
+      const m = statSync(join(dataDir, f)).mtimeMs;
+      if (m > latest) latest = m;
+    } catch {
+      /* file missing — ignore */
+    }
+  }
+  return latest > 0 ? new Date(latest) : new Date('2026-10-14T00:00:00Z');
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+  const now = contentLastModified();
 
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [

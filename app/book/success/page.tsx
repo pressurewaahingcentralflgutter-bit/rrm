@@ -4,7 +4,7 @@ import { CheckCircle2, Phone, Clock, MessageSquare, ArrowRight } from 'lucide-re
 import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = {
-  title: 'Quote Request Received | RRM External Cleaning',
+  title: { absolute: 'Quote Request Received | R.R.M' },
   robots: { index: false },
 }
 

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     absolute: 'Service Locations | Exterior Cleaning Near You | R.R.M',
   },
   description:
-    'Find exterior cleaning services near you across the North West. R.R.M covers 21 locations — Warrington, Newton-le-Willows, St Helens, Widnes, Leigh, Manchester, Liverpool & more. Free quotes.',
+    'Exterior cleaning near you across the North West. R.R.M covers 21 locations — Warrington, St Helens, Widnes, Leigh, Manchester & more. Free quotes.',
   keywords: [
     'exterior cleaning near me',
     'exterior cleaning locations North West',

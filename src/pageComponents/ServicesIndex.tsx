@@ -75,7 +75,7 @@ export default function ServicesIndex() {
         <div className="container-custom">
           <div className="max-w-3xl">
             <h1 className="font-display text-4xl md:text-5xl font-bold text-primary-foreground mb-6">
-              Exterior Cleaning Services Across the North West
+              All 40 Exterior Cleaning Services — North West England
             </h1>
 
             <p className="text-lg md:text-xl text-primary-foreground/85 mb-4 leading-relaxed">

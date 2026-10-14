@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     absolute: 'Cleaning by Surface Type | Block Paving, Render & More',
   },
   description:
-    'Professional exterior cleaning matched to your surface. Concrete, block paving, tarmac, render, roof tiles, uPVC, timber & glass. R.R.M External Cleaning — North West specialists. Free quotes.',
+    'Surface-specific exterior cleaning: concrete, block paving, tarmac, render, roof tiles, uPVC, timber & glass. R.R.M — North West specialists.',
   keywords: [
     'exterior cleaning by surface type',
     'concrete cleaning North West',

@@ -15,9 +15,17 @@ function truncateAtWord(str: string, max: number): string {
 }
 
 export function generatePageMetadata(service: Service, location: Location): Metadata {
-  // Keyword-first: "[Service] in [Location] | R.R.M External Cleaning" — ≤60 chars
-  const fullTitle = `${service.shortName} in ${location.name} | R.R.M External Cleaning`;
-  const title = truncateAtWord(fullTitle, 60);
+  // Keyword-first: "[Service] in [Location] | R.R.M External Cleaning" — ≤60 chars.
+  // Long service+location combos fall back to the short "| R.R.M" brand suffix
+  // rather than mid-brand truncation ("R.R.M External..."), which looks broken
+  // in SERPs and wastes the brand signal.
+  const base = `${service.shortName} in ${location.name}`;
+  const title =
+    base.length + ' | R.R.M External Cleaning'.length <= 60
+      ? base + ' | R.R.M External Cleaning'
+      : base.length + ' | R.R.M'.length <= 60
+        ? base + ' | R.R.M'
+        : truncateAtWord(base, 57) + '...';
 
   // Tier-based description for higher local CTR
   const postcodeHint =
@@ -124,7 +132,7 @@ const serviceIndexOverrides: Record<string, ServiceIndexOverride> = {
   'patio-cleaning': {
     title: 'Affordable Patio Cleaning Near You | R.R.M',
     description:
-      'Green algae, moss & black stains spoiling your patio? R.R.M offers affordable patio jet washing near Warrington, Newton-le-Willows & Manchester. Book today!',
+      'Green algae, moss & black stains on your patio? Affordable patio jet washing near Warrington, Newton-le-Willows & Manchester. Book today!',
     keywords: [
       'patio cleaning near me', 'affordable patio cleaning North West',
       'patio jet washing Warrington', 'patio cleaning Newton-le-Willows',
@@ -136,7 +144,7 @@ const serviceIndexOverrides: Record<string, ServiceIndexOverride> = {
   'gutter-cleaning': {
     title: 'Affordable Gutter Cleaning Near You | R.R.M',
     description:
-      'Blocked gutters causing damp & damage? R.R.M External Cleaning Specialist clears gutters affordably across Newton-le-Willows, Warrington & Manchester. Book now!',
+      'Blocked gutters causing damp & damage? R.R.M clears gutters affordably across Newton-le-Willows, Warrington & Manchester. Book now!',
     keywords: [
       'gutter cleaning near me', 'blocked gutters North West',
       'affordable gutter cleaning Warrington', 'gutter cleaning Newton-le-Willows',
@@ -158,9 +166,11 @@ const serviceIndexOverrides: Record<string, ServiceIndexOverride> = {
     ],
   },
   'render-sealing': {
-    title: 'Affordable Render Cleaning & Sealing | R.R.M',
+    // NOTE: must differ from the render-cleaning override — identical
+    // title+description pairs on two index pages read as duplicates to Google.
+    title: 'Render Sealing North West | Long-Lasting Protection | R.R.M',
     description:
-      "Stained, green or cracked render damaging your home's appearance? R.R.M offers affordable render cleaning & sealing across the North West. Book today!",
+      'Protect freshly cleaned render with breathable, water-repellent sealant. Professional render sealing across the North West — stops algae regrowth.',
     keywords: [
       'render sealing near me', 'affordable render sealing North West',
       'render cleaning and sealing Warrington', 'render sealing Newton-le-Willows',
@@ -183,7 +193,7 @@ const serviceIndexOverrides: Record<string, ServiceIndexOverride> = {
   'commercial-exterior-cleaning': {
     title: 'Affordable Commercial Exterior Cleaning | R.R.M',
     description:
-      'Grimy facades, stained car parks & blocked gutters costing you clients? R.R.M delivers affordable commercial exterior cleaning across North West. Get a quote!',
+      'Grimy facades, stained car parks & blocked gutters? R.R.M delivers affordable commercial exterior cleaning across the North West. Get a quote!',
     keywords: [
       'commercial exterior cleaning North West', 'commercial pressure washing Warrington',
       'commercial jet washing Manchester', 'commercial building cleaning Newton-le-Willows',
@@ -195,7 +205,7 @@ const serviceIndexOverrides: Record<string, ServiceIndexOverride> = {
   'jet-washing': {
     title: 'Affordable Jet Washing Near You | R.R.M Specialist',
     description:
-      'Stubborn grime, stains & algae no match for our professional jet washing. R.R.M offers affordable jet washing services near Warrington & North West. Book today!',
+      'Stubborn grime, stains & algae? R.R.M offers affordable professional jet washing near Warrington & the North West. Book today!',
     keywords: [
       'jet washing near me', 'affordable jet washing North West',
       'jet washing Warrington', 'jet washing Newton-le-Willows',

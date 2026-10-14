@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     absolute: 'FAQs — Exterior Cleaning North West | R.R.M Specialist',
   },
   description:
-    'Answers to common questions about pressure washing, driveway cleaning, roof cleaning, gutter clearing, render cleaning & soft washing across the North West. R.R.M — est. 2016, fully insured.',
+    'Exterior cleaning FAQs: pressure washing, driveways, roofs, gutters, render & soft washing across the North West. R.R.M — est. 2016, fully insured.',
   keywords: [
     'exterior cleaning FAQ North West',
     'pressure washing questions',

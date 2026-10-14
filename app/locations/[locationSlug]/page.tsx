@@ -17,11 +17,11 @@ const locationMetaOverrides: Record<string, { title: string; description: string
   },
   'warrington': {
     title: 'Exterior Cleaning Warrington (WA1–WA4) | R.R.M Specialist',
-    description: 'Exterior cleaning Warrington (WA1, WA2, WA4) — driveways, render, roofs & gutters. 47 five-star reviews. R.R.M: fully insured, est. 2016. Free quote: 07845 463877.',
+    description: 'Exterior cleaning Warrington (WA1, WA2, WA4) — driveways, render, roofs & gutters. 47 five-star reviews. R.R.M: fully insured, est. 2016. Free quote.',
   },
   'st-helens': {
     title: 'Exterior Cleaning St Helens (WA9–WA11) | R.R.M',
-    description: 'Exterior cleaning St Helens (WA9–WA11) — driveways, render, roofs & gutters. 47 five-star reviews. R.R.M: fully insured, est. 2016. Free quote: 07845 463877.',
+    description: 'Exterior cleaning St Helens (WA9–WA11) — driveways, render, roofs & gutters. 47 five-star reviews. R.R.M: fully insured, est. 2016. Free quote.',
   },
   'widnes': {
     title: 'Exterior Cleaning Widnes (WA8) | R.R.M Cheshire',

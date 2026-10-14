@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     absolute: 'Exterior Cleaning Services North West | R.R.M Specialist',
   },
   description:
-    '40 professional exterior cleaning services across the North West — pressure washing, driveway cleaning, roof soft washing, gutter clearing, render cleaning & more. R.R.M — fully insured, est. 2016. Free quotes.',
+    '40 exterior cleaning services across the North West — pressure washing, driveways, roofs, gutters, render & more. R.R.M — fully insured, est. 2016.',
   keywords: [
     'exterior cleaning services North West',
     'pressure washing services near me',

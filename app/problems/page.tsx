@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     absolute: 'Exterior Property Problems & Solutions | R.R.M North West',
   },
   description:
-    'Moss, algae, lichen, oil stains, black spot mould — R.R.M External Cleaning has the professional solution. Expert exterior property treatments across the North West. Free no-obligation quotes.',
+    'Moss, algae, lichen, oil stains, black spot mould — professional exterior treatments across the North West. R.R.M — est. 2016, fully insured.',
   keywords: [
     'exterior property problems North West',
     'moss removal near me',

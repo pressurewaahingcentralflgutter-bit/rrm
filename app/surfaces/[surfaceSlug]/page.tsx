@@ -20,9 +20,11 @@ export async function generateMetadata({
 
   const canonical = `${BASE_URL}/surfaces/${surfaceSlug}`;
 
-  const title = surface.metaTitle.length <= 60
-    ? surface.metaTitle
-    : `${surface.displayName} Cleaning | North West Specialist`;
+  // Hard-capped at 60 chars — never truncate the brand suffix mid-word.
+  const fallbackTitle = `${surface.displayName} Cleaning | North West Specialist`;
+  const rawTitle = surface.metaTitle.length <= 60 ? surface.metaTitle : fallbackTitle;
+  const title =
+    rawTitle.length <= 60 ? rawTitle : rawTitle.slice(0, 57).replace(/\s+\S*$/, '') + '...';
 
   const description =
     `${surface.metaDescription} Specialist ${surface.name.toLowerCase()} cleaning across Warrington, Newton-le-Willows, St Helens & the North West. Free quotes.`.slice(0, 155);

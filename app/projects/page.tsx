@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     absolute: 'Our Projects & Work Gallery | R.R.M External Cleaning Specialist',
   },
   description:
-    'See 71 real exterior cleaning projects by R.R.M across North West England. Driveways, roofs, render, patios, gutters & commercial cleans in Warrington, Newton-le-Willows, Manchester & Merseyside. No stock photos.',
+    '71 real R.R.M exterior cleaning projects across the North West — driveways, roofs, render, patios & gutters. Real photos, no stock images.',
   keywords: [
     'exterior cleaning before after North West',
     'driveway cleaning results Warrington',

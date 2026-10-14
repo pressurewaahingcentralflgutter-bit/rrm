@@ -107,7 +107,7 @@ export default function ProblemPageContent({ params }: ProblemPageProps) {
               <ol className="flex flex-wrap justify-center gap-1.5 text-orange-200 text-sm">
                 <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
                 <li aria-hidden="true" className="text-orange-400">/</li>
-                <li><Link href="/problems/" className="hover:text-white transition-colors">Exterior Problems</Link></li>
+                <li><Link href="/problems" className="hover:text-white transition-colors">Exterior Problems</Link></li>
                 <li aria-hidden="true" className="text-orange-400">/</li>
                 <li className="text-white" aria-current="page">{problem.displayName}</li>
               </ol>

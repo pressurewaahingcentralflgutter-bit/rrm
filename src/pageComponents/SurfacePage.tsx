@@ -106,7 +106,7 @@ export default function SurfacePageContent({ params }: SurfacePageProps) {
               <ol className="flex flex-wrap gap-1.5 text-green-200 text-sm">
                 <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
                 <li aria-hidden="true" className="text-green-400">/</li>
-                <li><Link href="/surfaces/" className="hover:text-white transition-colors">Surfaces</Link></li>
+                <li><Link href="/surfaces" className="hover:text-white transition-colors">Surfaces</Link></li>
                 <li aria-hidden="true" className="text-green-400">/</li>
                 <li className="text-white" aria-current="page">{surface.displayName}</li>
               </ol>

@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Terms & Conditions',
   description: 'Terms and conditions for R.R.M Exterior Cleaning Specialist',
+  alternates: { canonical: 'https://rrmexternalcleaningspecialist.co.uk/terms-conditions' },
 };
 
 export default function TermsConditionsPage() {

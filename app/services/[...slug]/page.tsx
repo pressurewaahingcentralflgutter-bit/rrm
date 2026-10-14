@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import ServiceDynamicClient from './ServiceDynamicClient';
 import { locations } from '@/data/locations';
 import { services } from '@/data/services';
@@ -7,6 +8,20 @@ const BASE_URL = 'https://rrmexternalcleaningspecialist.co.uk';
 
 // Location lookup by slug
 const locationsMap = Object.fromEntries(locations.map(l => [l.slug, l]));
+
+// Valid slugs come from the canonical data files — anything else is a 404.
+// (The more specific /services/[service] and /services/[service]/[town] routes
+//  handle all valid 1- and 2-segment URLs; this catch-all must never mint
+//  indexable URLs of its own.)
+const validServiceSlugs = new Set(services.map((s) => s.slug));
+const validLocationSlugs = new Set(locations.map((l) => l.slug));
+
+/** 404 anything this catch-all should never serve (deep or unknown slugs). */
+function assertServableSlug(slug: string[] | undefined) {
+  if (!slug || slug.length === 0 || slug.length > 2) notFound();
+  if (!validServiceSlugs.has(slug[0])) notFound();
+  if (slug[1] !== undefined && !validLocationSlugs.has(slug[1])) notFound();
+}
 
 // All 21 service area locations + legacy dedicated-page locations
 const locationDisplayNames: Record<string, string> = {
@@ -387,21 +402,21 @@ type PageProps = {
   params: Promise<{ slug: string[] }>;
 };
 
-export async function generateStaticParams() {
-  const params: { slug: string[] }[] = [];
-  for (const service of services) {
-    params.push({ slug: [service.slug] });
-    for (const location of locations) {
-      params.push({ slug: [service.slug, location.slug] });
-    }
-  }
-  return params;
+// NOTE: intentionally empty. The specific routes /services/[service] and
+// /services/[service]/[town] own every valid 1- and 2-segment URL and prerender
+// them; emitting params here only built 880 shadowed pages that could never be
+// served (and raced the real routes for the same output files at build time).
+export async function generateStaticParams(): Promise<{ slug: string[] }[]> {
+  return [];
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const serviceSlug = slug?.[0] || '';
-  const locationSlug = slug?.[1];
+  // Finite URL space: deep paths and unknown slugs are hard 404s, never
+  // indexable soft-duplicate pages.
+  assertServableSlug(slug);
+  const serviceSlug = slug[0];
+  const locationSlug = slug[1];
 
   // ── Service + Location page ───────────────────────────────────────────────
   if (locationSlug) {
@@ -473,8 +488,10 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function ServiceDynamicPage({ params }: PageProps) {
   const { slug } = await params;
-  const serviceSlug = slug?.[0] || '';
-  const locationSlug = slug?.[1];
+  // Same guard as generateMetadata: unknown or deep slugs are hard 404s.
+  assertServableSlug(slug);
+  const serviceSlug = slug[0];
+  const locationSlug = slug[1];
 
   const serviceName = serviceDisplayNames[serviceSlug] ?? serviceSlug;
   const locationName = locationSlug ? (locationDisplayNames[locationSlug] ?? locationSlug) : null;
