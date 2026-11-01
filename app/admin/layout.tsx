@@ -29,8 +29,13 @@ export default async function AdminLayout({
     return <>{children}</>
   }
 
-  const bookings = await getAllBookings()
-  const pendingCount = bookings.filter((b) => b.status === 'pending_quote').length
+  let pendingCount = 0
+  try {
+    const bookings = await getAllBookings()
+    pendingCount = bookings.filter((b) => b.status === 'pending_quote').length
+  } catch {
+    // Sidebar badge shows 0 if bookings can't load; the page itself shows the error
+  }
 
   return (
     <div className="flex min-h-screen bg-background">
