@@ -184,6 +184,8 @@ export const metadata: Metadata = {
   other: {
     // Google Search Console verification
     'google-site-verification': 'v8P94CRfISwlk7t5LpsCS6QK4yb5M6PEw-Axte6p0WQ',
+    // Bing Webmaster verification — replace with actual code from Bing Webmaster Tools
+    // 'msvalidate.01': 'YOUR_BING_CODE_HERE',
     // Geographic meta — used by some crawlers and LLM indexers
     'ICBM': '53.4547,-2.6697',
     'geo.placename': 'Newton-le-Willows, Merseyside',
