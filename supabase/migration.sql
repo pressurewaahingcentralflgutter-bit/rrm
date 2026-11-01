@@ -1,6 +1,6 @@
 -- RRM Booking System — Supabase Schema
 -- Run this in the Supabase SQL Editor:
--- https://supabase.com/dashboard/project/jtbyonvsmfeqaaogszsi/sql/new
+-- https://supabase.com/dashboard/project/aarmdqqmvlueqovtvyfr/sql/new
 
 -- ─── Bookings table ───────────────────────────────────────────────────────────
 CREATE TABLE IF NOT EXISTS bookings (
