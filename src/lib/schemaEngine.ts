@@ -200,8 +200,25 @@ export function generateSchema(
     buildServiceSchema(service, location),
     buildFaqSchema(content),
     buildBreadcrumbSchema(service, location),
+    buildSpeakableSchema(service, location),
   ];
   return JSON.stringify(schemas);
+}
+
+// SpeakableSpecification for voice search + AI assistants (AEO/AIO)
+function buildSpeakableSchema(
+  service: Service,
+  location: Location,
+): Record<string, unknown> {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: `${service.shortName} in ${location.name}`,
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: ['.quick-answer', '.faq-answer'],
+    },
+  };
 }
 
 // Service index page schema — reuses buildLocalBusiness for full parity with town pages

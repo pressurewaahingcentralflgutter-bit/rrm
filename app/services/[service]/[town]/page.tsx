@@ -110,9 +110,9 @@ export default async function ServiceTownPage({
             >
               {content.h1}
             </h1>
-            <p className="text-blue-100 text-base sm:text-lg mb-6 max-w-2xl">
-              R.R.M External Cleaning Specialist — serving {location.name} and the wider{' '}
-              {location.county} area since 2016. Fully insured. Available 24 hours a day.
+            {/* Quick answer — direct answer block for featured snippets, voice, AI (AEO/AIO/GEO) */}
+            <p className="quick-answer text-blue-100 text-base sm:text-lg mb-6 max-w-2xl">
+              {content.quickAnswer}
             </p>
             <div className="flex flex-col sm:flex-row gap-3 mb-6">
               <CTAButton phone="+44 7845 463877" label="Get a Free Quote" variant="primary" />

@@ -303,6 +303,11 @@ function buildNearbyAreas(
 
 // ─── Main export ──────────────────────────────────────────────────────────────
 
+function buildQuickAnswer(service: Service, location: Location): string {
+  // 40-60 word direct answer for featured snippets, voice search, AI overviews (AEO/AIO/GEO)
+  return `R.R.M External Cleaning provides ${service.shortName.toLowerCase()} in ${location.name}, ${location.county}. Fully insured since 2016 and 5-star rated, we serve ${location.postcodes.slice(0, 2).join(' and ')} with free no-obligation quotes. Call +44 7845 463877 for same-week service.`;
+}
+
 export function generateContent(service: Service, location: Location): ContentBlock {
   const h1 = buildH1(service, location);
   const introBody = buildIntroBody(service, location);
@@ -315,8 +320,9 @@ export function generateContent(service: Service, location: Location): ContentBl
 
   return {
     h1,
-    metaTitle: `${service.shortName} ${location.name} | R.R.M External Cleaning`.slice(0, 60),
-    metaDescription: `Professional ${service.name.toLowerCase()} in ${location.name}. R.R.M External Cleaning — fully insured, 24/7, est. 2016. Free no-obligation quotes across ${location.county}.`.slice(
+    quickAnswer: buildQuickAnswer(service, location),
+    metaTitle: `${service.shortName} ${location.name} — 5★ Rated, Free Quotes | R.R.M`.slice(0, 60),
+    metaDescription: `Need ${service.shortName.toLowerCase()} in ${location.name}? R.R.M — 5-star rated, fully insured, est. 2016. Free quote today.`.slice(
       0,
       155,
     ),

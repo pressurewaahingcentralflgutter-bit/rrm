@@ -54,6 +54,7 @@ export interface ContentBlock {
   h1: string;
   metaTitle: string;
   metaDescription: string;
+  quickAnswer: string;
   introSection: { h2: string; body: string };
   serviceSection: {
     h2: string;

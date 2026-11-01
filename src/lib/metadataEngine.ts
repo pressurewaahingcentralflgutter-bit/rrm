@@ -15,14 +15,14 @@ function truncateAtWord(str: string, max: number): string {
 }
 
 export function generatePageMetadata(service: Service, location: Location): Metadata {
-  // Keyword-first: "[Service] in [Location] | R.R.M External Cleaning" — ≤60 chars.
-  // Long service+location combos fall back to the short "| R.R.M" brand suffix
-  // rather than mid-brand truncation ("R.R.M External..."), which looks broken
-  // in SERPs and wastes the brand signal.
-  const base = `${service.shortName} in ${location.name}`;
+  // CTR-optimized: "[Service] [Location] — 5★ Rated, Free Quotes | R.R.M"
+  // GSC data (Nov 2026): 0% CTR on 500+ impression queries — generic titles don't convert.
+  // Lead with keyword, add star rating + free quote CTA for SERP clicks.
+  const base = `${service.shortName} ${location.name}`;
+  const suffix = ' — 5★ Rated, Free Quotes | R.R.M';
   const title =
-    base.length + ' | R.R.M External Cleaning'.length <= 60
-      ? base + ' | R.R.M External Cleaning'
+    base.length + suffix.length <= 60
+      ? base + suffix
       : base.length + ' | R.R.M'.length <= 60
         ? base + ' | R.R.M'
         : truncateAtWord(base, 57) + '...';
@@ -35,10 +35,10 @@ export function generatePageMetadata(service: Service, location: Location): Meta
 
   const fullDesc =
     location.tier === 1
-      ? `${service.shortName} in ${location.name}${postcodeHint} from R.R.M — locally based, fully insured, 5-star rated, est. 2016. Free no-obligation quotes. 24/7 availability.`
+      ? `Need ${service.shortName.toLowerCase()} in ${location.name}${postcodeHint}? R.R.M — 5-star rated, fully insured, est. 2016. Get your free no-obligation quote today. 24/7 availability.`
       : location.tier === 2
-        ? `Professional ${service.name.toLowerCase()} in ${location.name}, ${location.county}. R.R.M External Cleaning — fully insured, 5-star rated, est. 2016. Free quotes across ${location.postcodes.slice(0, 2).join(' & ')}.`
-        : `${service.shortName} in ${location.name} from R.R.M External Cleaning — based in Newton-le-Willows, serving ${location.county}. Fully insured, est. 2016. Free quote today.`;
+        ? `${service.shortName} in ${location.name}, ${location.county} — 5-star rated by locals. Fully insured, est. 2016. Free quotes across ${location.postcodes.slice(0, 2).join(' & ')}. Book today.`
+        : `Looking for ${service.shortName.toLowerCase()} in ${location.name}? R.R.M serves ${location.county} — 5-star rated, fully insured since 2016. Free quote, no obligation.`;
 
   const description = fullDesc.length <= 155 ? fullDesc : truncateAtWord(fullDesc, 152);
 
