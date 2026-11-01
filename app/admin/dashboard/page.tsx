@@ -30,7 +30,13 @@ export default async function AdminDashboardPage({ searchParams }: PageProps) {
   if (!(await isAdminAuthenticated())) redirect('/admin/login')
 
   const { status: statusFilter = 'all' } = await searchParams
-  const allBookings = await getAllBookings()
+  let allBookings: Awaited<ReturnType<typeof getAllBookings>> = []
+  let loadError: string | null = null
+  try {
+    allBookings = await getAllBookings()
+  } catch (e) {
+    loadError = e instanceof Error ? e.message : 'Failed to load bookings'
+  }
 
   const filtered =
     statusFilter === 'all'
@@ -58,6 +64,13 @@ export default async function AdminDashboardPage({ searchParams }: PageProps) {
           <p className="text-sm text-muted-foreground mt-0.5">
             {allBookings.length} total booking{allBookings.length !== 1 ? 's' : ''}
           </p>
+          {loadError && (
+            <div className="mt-4 rounded-lg border border-red-500/40 bg-red-500/10 p-4 text-sm text-red-200">
+              <p className="font-semibold">Could not load bookings</p>
+              <p className="mt-1 text-red-200/80">{loadError}</p>
+              <p className="mt-2 text-red-200/60">Check that Supabase environment variables are set on the deployment.</p>
+            </div>
+          )}
         </div>
         <a href="/book" target="_blank" rel="noopener noreferrer">
           <button className="text-xs font-medium text-accent hover:underline underline-offset-2">
